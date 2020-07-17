@@ -20,7 +20,7 @@ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh
 
     <div  class="container-fluid"> 
      <!------------------------------------------------Header------------------------------------------------>   
-        <div style="background-color:  #696969; padding: 15px; margin: 15px; border-radius: 10px;" class="row"> 
+        <div id="containerGame" style="background-color:  #696969; padding: 15px; margin: 15px; border-radius: 10px;" class="row"> 
             <div class="col-md-2">
                 <h4>Sample text</h4>
             </div>
@@ -32,19 +32,23 @@ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh
      
      <!------------------------------------------------Main------------------------------------------------>
         <div class="row"> 
-            <h1 style="color:whitesmoke;" align = "center">00:00</h1>
+            <h1 id="switchTimer" style="color:whitesmoke;" align = "center">00:00</h1>
         </div> 
         <!--Полиция-->
         <div style="padding: 5px;" align = "center" class="row">
-            <div class="col-md-4">
+            <div id="team1Container" class="col-md-4">
                 <div style="background-color: #696969; margin: 40px;  border: 3px solid blue; border-radius: 10px;">
                     <div class="row"> 
                         <h3 style="margin: 18px; background-color:aquamarine; blue; border-radius: 10px;" align = "center">Полиция</h3>
+                        <!--Игроки-->
+                        <div id="team1Players">
+                            <p>Glad Valakas</p>
+                        </div>    
                         <div>
                             <div class="col-md-8">
                                 <h4 style="color:whitesmoke; margin: 25px;" align = "left">Жизни:</h4>                        
                             </div>
-                            <div class="col-md-4">
+                            <div id="team1Lives" class="col-md-4">
                                 <h4 style="color:whitesmoke; margin: 25px;" align = "left">5</h4>                        
                             </div>
                         </div>
@@ -52,7 +56,7 @@ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh
                             <div class="col-md-8">
                                 <h4 style="color:whitesmoke; margin: 25px;" align = "left">Монеты:</h4>                        
                             </div>
-                            <div class="col-md-4">
+                            <div id="team1Coins" class="col-md-4">
                                 <h4 style="color:whitesmoke; margin: 25px;" align = "left">0</h4>                        
                             </div>
                         </div>
@@ -61,18 +65,22 @@ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh
             </div>
 
             <!--Карта-->
-            <div style="outline: 2px solid #000;" class="col-md-4"> <img height="350" width="350" src="https://vignette.wikia.nocookie.net/vedmak/images/b/ba/Novigrad.png/revision/latest?cb=20150530140712"> </div>
+            <div class="col-md-4"> <canvas id="mapCanvas"></canvas> </div>
            
             <!--Воры-->
-            <div class="col-md-4">
+            <div id="team2Container" class="col-md-4">
                 <div style="background-color: #696969; margin: 40px;  border: 3px solid orange; border-radius: 10px;">
                     <div class="row"> 
                         <h3 style="margin: 18px; background-color: yellow; blue; border-radius: 10px;" align = "center">Мошенники</h3>
+                         <!--Игроки-->
+                         <div id="team2Players">
+                            <p>Glad Valakas</p>
+                        </div>                        
                         <div>
                             <div class="col-md-8">
                                 <h4 style="color:whitesmoke; margin: 25px;" align = "left">Жизни:</h4>                        
                             </div>
-                            <div class="col-md-4">
+                            <div id="team2Lives" class="col-md-4">
                                 <h4 style="color:whitesmoke; margin: 25px;" align = "left">5</h4>                        
                             </div>
                         </div>
@@ -80,7 +88,7 @@ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh
                             <div class="col-md-8">
                                 <h4 style="color:whitesmoke; margin: 25px;" align = "left">Монеты:</h4>                        
                             </div>
-                            <div class="col-md-4">
+                            <div id="team2Coins" class="col-md-4">
                                 <h4 style="color:whitesmoke; margin: 25px;" align = "left">0</h4>                        
                             </div>
                         </div>
@@ -94,16 +102,16 @@ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh
         <div style="background-color:  #696969; padding: 15px; margin: 15px; border-radius: 10px;" class="row">
             <div class="btn-group btn-group-justified" role="group" aria-label="...">
                 <div class="btn-group" role="group">
-                  <button type="button" class="btn btn-default">К списку игр</button>
+                  <button id="btnGameList" type="button" class="btn btn-default">К списку игр</button>
                 </div>
                 <div class="btn-group" role="group">
-                  <button type="button" class="btn btn-default">Начать игру</button>
+                  <button id="btnStart" type="button" class="btn btn-default">Начать игру</button>
                 </div>
                 <div class="btn-group" role="group">
-                  <button type="button" class="btn btn-default">Покинуть игру</button>
+                  <button id="btnLeave" type="button" class="btn btn-default">Покинуть игру</button>
                 </div>
                 <div class="btn-group" role="group">
-                    <button style="background-color: brown;" type="button" class="btn btn-default">Прервать игру</button>
+                  <button id="btnCancel"style="background-color: brown;" type="button" class="btn btn-default">Прервать игру</button>
                 </div>
               </div>              
         </div>
