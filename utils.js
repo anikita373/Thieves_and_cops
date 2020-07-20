@@ -79,7 +79,7 @@ const utils = {
         };
 
         stats.playerStats && stats.playerStats.forEach((playerStat)=>{
-            const player = utils.createPlayerFromStats(playerStat);
+            const player = this.createPlayerFromStats(playerStat);
             team.players[player.id] = player;
         });
 
