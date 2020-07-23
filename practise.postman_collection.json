@@ -1,0 +1,662 @@
+{
+	"info": {
+		"_postman_id": "bd3faaa5-e068-4b04-8894-d634bf9b6ad1",
+		"name": "Практика",
+		"description": "Сижу выполняю задания по POSTMAN ¯ \\ (°_o)/¯",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Токен",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "anikita373",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "qwe123QWE!@#",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "104.40.150.146/token",
+					"host": [
+						"104",
+						"40",
+						"150",
+						"146"
+					],
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Посмотреть информацию о себе",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e153d7c3-0777-413a-bcb5-15b298e41039",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Login test\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.login).to.eql(\"anikita373\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAAAZ-KQx9Y8kGFX7ItjR4uNgAAAAACAAAAAAAQZgAAAAEAACAAAACgXaTm9SxD1_eobDBJ3vaUbDEm9TIIisPb-C2OdgPUlwAAAAAOgAAAAAIAACAAAACxDEVMK1ZgsI2GKqjVe6FmnnLFESLtG-P0G92_x01lDDABAADdLS8GG7dp0j41WocuorLkfVPc4E-4kynid383hp-DMz5BDgdcdlZYzBY0AZv3LvQkQqIcawu8t6t9O3VfG0qBNb7Y8KxPa304EtPV7T-C9yYpvx5tQdeA-z-KfQKapEcvHRmGHg-E0b3p5klCaStiXh3AT5CqP_c_4xi0p3n6PJJmEGL-AzkMYTzxinfWShACdHj4bCDYbLyRebxT978chmS2d3LQU8dkFCJ7_-XC1akiXJLBPBbjJsiMZg_Cw2Mi-SjpWYwDURS_kgSvObclEyqU2KZWNDXKqBqhgugvcN-OlbxGSWB2zsYiUDPP8DsUpL-UeXzGMyNNmyn7zAc8aReyQpNVMHexGhfs-cmaTCGNGgj-m_IGEi3H5RIW9zs1Gc5p1VPw4gEzwMC0_2laQAAAAGv2RGGQHE2uAFezy3ao7KqqHpqDkYiYuqQGfK8IdXZ3XmAKp-Wmbbcrh8HujdeeqSMoH7WnYe9aijTFY92FJPM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "104.40.150.146/api/me",
+					"host": [
+						"104",
+						"40",
+						"150",
+						"146"
+					],
+					"path": [
+						"api",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Обновить информацию о себе",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0d1b77ab-fa50-4fc3-82a8-f5970a43599e",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAAAZ-KQx9Y8kGFX7ItjR4uNgAAAAACAAAAAAAQZgAAAAEAACAAAACgXaTm9SxD1_eobDBJ3vaUbDEm9TIIisPb-C2OdgPUlwAAAAAOgAAAAAIAACAAAACxDEVMK1ZgsI2GKqjVe6FmnnLFESLtG-P0G92_x01lDDABAADdLS8GG7dp0j41WocuorLkfVPc4E-4kynid383hp-DMz5BDgdcdlZYzBY0AZv3LvQkQqIcawu8t6t9O3VfG0qBNb7Y8KxPa304EtPV7T-C9yYpvx5tQdeA-z-KfQKapEcvHRmGHg-E0b3p5klCaStiXh3AT5CqP_c_4xi0p3n6PJJmEGL-AzkMYTzxinfWShACdHj4bCDYbLyRebxT978chmS2d3LQU8dkFCJ7_-XC1akiXJLBPBbjJsiMZg_Cw2Mi-SjpWYwDURS_kgSvObclEyqU2KZWNDXKqBqhgugvcN-OlbxGSWB2zsYiUDPP8DsUpL-UeXzGMyNNmyn7zAc8aReyQpNVMHexGhfs-cmaTCGNGgj-m_IGEi3H5RIW9zs1Gc5p1VPw4gEzwMC0_2laQAAAAGv2RGGQHE2uAFezy3ao7KqqHpqDkYiYuqQGfK8IdXZ3XmAKp-Wmbbcrh8HujdeeqSMoH7WnYe9aijTFY92FJPM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"NativeName\": \"Калинин Никита\",\r\n  \"Role\": 0,\r\n  \"OldPassword\": \"qwe123QWE!@#\",\r\n  \"Password\": \"qwe123QWE!@#qwe123QWE!@#\",\r\n  \"ConfirmPassword\": \"qwe123QWE!@#qwe123QWE!@#\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "104.40.150.146/api/user/b3027f8623f8426ea8ce1714bdd0e963",
+					"host": [
+						"104",
+						"40",
+						"150",
+						"146"
+					],
+					"path": [
+						"api",
+						"user",
+						"b3027f8623f8426ea8ce1714bdd0e963"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить информацию о пользователе",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f010b452-63a5-40b7-89b8-85ef0b07ae22",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get id test\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.id).to.eql(\"e73dfaece50542ab9d93130e23fd4191\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAAAZ-KQx9Y8kGFX7ItjR4uNgAAAAACAAAAAAAQZgAAAAEAACAAAACgXaTm9SxD1_eobDBJ3vaUbDEm9TIIisPb-C2OdgPUlwAAAAAOgAAAAAIAACAAAACxDEVMK1ZgsI2GKqjVe6FmnnLFESLtG-P0G92_x01lDDABAADdLS8GG7dp0j41WocuorLkfVPc4E-4kynid383hp-DMz5BDgdcdlZYzBY0AZv3LvQkQqIcawu8t6t9O3VfG0qBNb7Y8KxPa304EtPV7T-C9yYpvx5tQdeA-z-KfQKapEcvHRmGHg-E0b3p5klCaStiXh3AT5CqP_c_4xi0p3n6PJJmEGL-AzkMYTzxinfWShACdHj4bCDYbLyRebxT978chmS2d3LQU8dkFCJ7_-XC1akiXJLBPBbjJsiMZg_Cw2Mi-SjpWYwDURS_kgSvObclEyqU2KZWNDXKqBqhgugvcN-OlbxGSWB2zsYiUDPP8DsUpL-UeXzGMyNNmyn7zAc8aReyQpNVMHexGhfs-cmaTCGNGgj-m_IGEi3H5RIW9zs1Gc5p1VPw4gEzwMC0_2laQAAAAGv2RGGQHE2uAFezy3ao7KqqHpqDkYiYuqQGfK8IdXZ3XmAKp-Wmbbcrh8HujdeeqSMoH7WnYe9aijTFY92FJPM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "userId",
+							"value": "e73dfaece50542ab9d93130e23fd4191",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "104.40.150.146/api/user/e73dfaece50542ab9d93130e23fd4191",
+					"host": [
+						"104",
+						"40",
+						"150",
+						"146"
+					],
+					"path": [
+						"api",
+						"user",
+						"e73dfaece50542ab9d93130e23fd4191"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить список карт(map)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5c2b0527-b0fa-41db-9a4d-0e61e01cccd6",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Pull map test\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.id).not.eql(null);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAAAZ-KQx9Y8kGFX7ItjR4uNgAAAAACAAAAAAAQZgAAAAEAACAAAACgXaTm9SxD1_eobDBJ3vaUbDEm9TIIisPb-C2OdgPUlwAAAAAOgAAAAAIAACAAAACxDEVMK1ZgsI2GKqjVe6FmnnLFESLtG-P0G92_x01lDDABAADdLS8GG7dp0j41WocuorLkfVPc4E-4kynid383hp-DMz5BDgdcdlZYzBY0AZv3LvQkQqIcawu8t6t9O3VfG0qBNb7Y8KxPa304EtPV7T-C9yYpvx5tQdeA-z-KfQKapEcvHRmGHg-E0b3p5klCaStiXh3AT5CqP_c_4xi0p3n6PJJmEGL-AzkMYTzxinfWShACdHj4bCDYbLyRebxT978chmS2d3LQU8dkFCJ7_-XC1akiXJLBPBbjJsiMZg_Cw2Mi-SjpWYwDURS_kgSvObclEyqU2KZWNDXKqBqhgugvcN-OlbxGSWB2zsYiUDPP8DsUpL-UeXzGMyNNmyn7zAc8aReyQpNVMHexGhfs-cmaTCGNGgj-m_IGEi3H5RIW9zs1Gc5p1VPw4gEzwMC0_2laQAAAAGv2RGGQHE2uAFezy3ao7KqqHpqDkYiYuqQGfK8IdXZ3XmAKp-Wmbbcrh8HujdeeqSMoH7WnYe9aijTFY92FJPM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "104.40.150.146/api/map",
+					"host": [
+						"104",
+						"40",
+						"150",
+						"146"
+					],
+					"path": [
+						"api",
+						"map"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Создать игру",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5bc45948-b44c-4061-a71c-f1635f7db4ca",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Crate game test\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.name).to.eql(\"test\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAAAZ-KQx9Y8kGFX7ItjR4uNgAAAAACAAAAAAAQZgAAAAEAACAAAACgXaTm9SxD1_eobDBJ3vaUbDEm9TIIisPb-C2OdgPUlwAAAAAOgAAAAAIAACAAAACxDEVMK1ZgsI2GKqjVe6FmnnLFESLtG-P0G92_x01lDDABAADdLS8GG7dp0j41WocuorLkfVPc4E-4kynid383hp-DMz5BDgdcdlZYzBY0AZv3LvQkQqIcawu8t6t9O3VfG0qBNb7Y8KxPa304EtPV7T-C9yYpvx5tQdeA-z-KfQKapEcvHRmGHg-E0b3p5klCaStiXh3AT5CqP_c_4xi0p3n6PJJmEGL-AzkMYTzxinfWShACdHj4bCDYbLyRebxT978chmS2d3LQU8dkFCJ7_-XC1akiXJLBPBbjJsiMZg_Cw2Mi-SjpWYwDURS_kgSvObclEyqU2KZWNDXKqBqhgugvcN-OlbxGSWB2zsYiUDPP8DsUpL-UeXzGMyNNmyn7zAc8aReyQpNVMHexGhfs-cmaTCGNGgj-m_IGEi3H5RIW9zs1Gc5p1VPw4gEzwMC0_2laQAAAAGv2RGGQHE2uAFezy3ao7KqqHpqDkYiYuqQGfK8IdXZ3XmAKp-Wmbbcrh8HujdeeqSMoH7WnYe9aijTFY92FJPM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Name\": \"test\",\r\n  \"MapId\": \"ce808fae80274353bd85743ec4d21fc8\",\r\n  \"SwitchTimeout\": 5000,\r\n  \"StartupTeamLives\": 5,\r\n  \"PoliceSpeed\": 1,\r\n  \"ThiefSpeed\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "104.40.150.146/api/game",
+					"host": [
+						"104",
+						"40",
+						"150",
+						"146"
+					],
+					"path": [
+						"api",
+						"game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить список игр(games)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3200895b-dc83-4475-9b16-d8abf0e6e9db",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Game list test\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.id).not.eql(null);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAAAZ-KQx9Y8kGFX7ItjR4uNgAAAAACAAAAAAAQZgAAAAEAACAAAACgXaTm9SxD1_eobDBJ3vaUbDEm9TIIisPb-C2OdgPUlwAAAAAOgAAAAAIAACAAAACxDEVMK1ZgsI2GKqjVe6FmnnLFESLtG-P0G92_x01lDDABAADdLS8GG7dp0j41WocuorLkfVPc4E-4kynid383hp-DMz5BDgdcdlZYzBY0AZv3LvQkQqIcawu8t6t9O3VfG0qBNb7Y8KxPa304EtPV7T-C9yYpvx5tQdeA-z-KfQKapEcvHRmGHg-E0b3p5klCaStiXh3AT5CqP_c_4xi0p3n6PJJmEGL-AzkMYTzxinfWShACdHj4bCDYbLyRebxT978chmS2d3LQU8dkFCJ7_-XC1akiXJLBPBbjJsiMZg_Cw2Mi-SjpWYwDURS_kgSvObclEyqU2KZWNDXKqBqhgugvcN-OlbxGSWB2zsYiUDPP8DsUpL-UeXzGMyNNmyn7zAc8aReyQpNVMHexGhfs-cmaTCGNGgj-m_IGEi3H5RIW9zs1Gc5p1VPw4gEzwMC0_2laQAAAAGv2RGGQHE2uAFezy3ao7KqqHpqDkYiYuqQGfK8IdXZ3XmAKp-Wmbbcrh8HujdeeqSMoH7WnYe9aijTFY92FJPM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "104.40.150.146/api/games?start=0&count=0",
+					"host": [
+						"104",
+						"40",
+						"150",
+						"146"
+					],
+					"path": [
+						"api",
+						"games"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "0"
+						},
+						{
+							"key": "count",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить информацию о играх пользователя(game)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6f10afef-3b08-4337-9bce-a9073c7affa2",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAAAZ-KQx9Y8kGFX7ItjR4uNgAAAAACAAAAAAAQZgAAAAEAACAAAACgXaTm9SxD1_eobDBJ3vaUbDEm9TIIisPb-C2OdgPUlwAAAAAOgAAAAAIAACAAAACxDEVMK1ZgsI2GKqjVe6FmnnLFESLtG-P0G92_x01lDDABAADdLS8GG7dp0j41WocuorLkfVPc4E-4kynid383hp-DMz5BDgdcdlZYzBY0AZv3LvQkQqIcawu8t6t9O3VfG0qBNb7Y8KxPa304EtPV7T-C9yYpvx5tQdeA-z-KfQKapEcvHRmGHg-E0b3p5klCaStiXh3AT5CqP_c_4xi0p3n6PJJmEGL-AzkMYTzxinfWShACdHj4bCDYbLyRebxT978chmS2d3LQU8dkFCJ7_-XC1akiXJLBPBbjJsiMZg_Cw2Mi-SjpWYwDURS_kgSvObclEyqU2KZWNDXKqBqhgugvcN-OlbxGSWB2zsYiUDPP8DsUpL-UeXzGMyNNmyn7zAc8aReyQpNVMHexGhfs-cmaTCGNGgj-m_IGEi3H5RIW9zs1Gc5p1VPw4gEzwMC0_2laQAAAAGv2RGGQHE2uAFezy3ao7KqqHpqDkYiYuqQGfK8IdXZ3XmAKp-Wmbbcrh8HujdeeqSMoH7WnYe9aijTFY92FJPM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "104.40.150.146/api/games?start=0&count=0",
+					"host": [
+						"104",
+						"40",
+						"150",
+						"146"
+					],
+					"path": [
+						"api",
+						"games"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "0"
+						},
+						{
+							"key": "count",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить список карт(maps)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b73ec8b7-3c76-4dfe-8f0e-aea2cf6458b3",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAAAZ-KQx9Y8kGFX7ItjR4uNgAAAAACAAAAAAAQZgAAAAEAACAAAACgXaTm9SxD1_eobDBJ3vaUbDEm9TIIisPb-C2OdgPUlwAAAAAOgAAAAAIAACAAAACxDEVMK1ZgsI2GKqjVe6FmnnLFESLtG-P0G92_x01lDDABAADdLS8GG7dp0j41WocuorLkfVPc4E-4kynid383hp-DMz5BDgdcdlZYzBY0AZv3LvQkQqIcawu8t6t9O3VfG0qBNb7Y8KxPa304EtPV7T-C9yYpvx5tQdeA-z-KfQKapEcvHRmGHg-E0b3p5klCaStiXh3AT5CqP_c_4xi0p3n6PJJmEGL-AzkMYTzxinfWShACdHj4bCDYbLyRebxT978chmS2d3LQU8dkFCJ7_-XC1akiXJLBPBbjJsiMZg_Cw2Mi-SjpWYwDURS_kgSvObclEyqU2KZWNDXKqBqhgugvcN-OlbxGSWB2zsYiUDPP8DsUpL-UeXzGMyNNmyn7zAc8aReyQpNVMHexGhfs-cmaTCGNGgj-m_IGEi3H5RIW9zs1Gc5p1VPw4gEzwMC0_2laQAAAAGv2RGGQHE2uAFezy3ao7KqqHpqDkYiYuqQGfK8IdXZ3XmAKp-Wmbbcrh8HujdeeqSMoH7WnYe9aijTFY92FJPM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "104.40.150.146/api/maps",
+					"host": [
+						"104",
+						"40",
+						"150",
+						"146"
+					],
+					"path": [
+						"api",
+						"maps"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить список карт пользователя",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0bc565af-2026-4b01-ab06-8a7f246f6e14",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAAAZ-KQx9Y8kGFX7ItjR4uNgAAAAACAAAAAAAQZgAAAAEAACAAAACgXaTm9SxD1_eobDBJ3vaUbDEm9TIIisPb-C2OdgPUlwAAAAAOgAAAAAIAACAAAACxDEVMK1ZgsI2GKqjVe6FmnnLFESLtG-P0G92_x01lDDABAADdLS8GG7dp0j41WocuorLkfVPc4E-4kynid383hp-DMz5BDgdcdlZYzBY0AZv3LvQkQqIcawu8t6t9O3VfG0qBNb7Y8KxPa304EtPV7T-C9yYpvx5tQdeA-z-KfQKapEcvHRmGHg-E0b3p5klCaStiXh3AT5CqP_c_4xi0p3n6PJJmEGL-AzkMYTzxinfWShACdHj4bCDYbLyRebxT978chmS2d3LQU8dkFCJ7_-XC1akiXJLBPBbjJsiMZg_Cw2Mi-SjpWYwDURS_kgSvObclEyqU2KZWNDXKqBqhgugvcN-OlbxGSWB2zsYiUDPP8DsUpL-UeXzGMyNNmyn7zAc8aReyQpNVMHexGhfs-cmaTCGNGgj-m_IGEi3H5RIW9zs1Gc5p1VPw4gEzwMC0_2laQAAAAGv2RGGQHE2uAFezy3ao7KqqHpqDkYiYuqQGfK8IdXZ3XmAKp-Wmbbcrh8HujdeeqSMoH7WnYe9aijTFY92FJPM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "userId",
+							"value": "b3027f8623f8426ea8ce1714bdd0e963",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "104.40.150.146/api/user/b3027f8623f8426ea8ce1714bdd0e963/maps",
+					"host": [
+						"104",
+						"40",
+						"150",
+						"146"
+					],
+					"path": [
+						"api",
+						"user",
+						"b3027f8623f8426ea8ce1714bdd0e963",
+						"maps"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "QAAANCMnd8BFdERjHoAwE_Cl-sBAAAAAZ-KQx9Y8kGFX7ItjR4uNgAAAAACAAAAAAAQZgAAAAEAACAAAABZLRK_LPDA3fN61Mtte9Ww9dOjPPbBITlGJ1zqzYsrpwAAAAAOgAAAAAIAACAAAACeu_xgnMSS46bW1g5-LJRZtCo6RsgBnACk3bPKsd5Y0iABAAA265xrykLfkHqLkXjg09mN_7k8J7quUdYuM-9RCGreg2CKHVZPKe0DlyIqgLNlpd8fl6mOTFrgAJDtGZn5UmTdjzL2uIeinMUnTyZxnI701uTueQ3_-g5n0HAiKsNHKA3eQwqGtXml3l_LoPn4HNXByP6VZDh-IGnZFtswPPrfeb-8xrXe6Q-50kg1sXWq8iY5OR8SsHwC2WcNETP3HtTyz1rud2HZ2DAYDWieKLzmHJw5SLhiyYl3T7CJUyM0a6-SPbathJjkCz-Qn64GwwrnYsnEidH_9MMU_skMAaHEZGfLL1kqWLPs0ukAQ5FOA3E9GKdAIgDLAE3XiPU_2jdUz7my0KrrCTZVjRe0epsI_cNM7zohz75YGiHTa0pf7h5AAAAATvhDGZVvWTWVyDkpsxMZcF0mMiziG2w1dPDJyegFkjZhpLOmGY1cX5YJdKikY2g8vfprWaxvUQNu8o1s5OnqVQ",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "41f6fdc9-e83a-4da8-8ee8-3d8b859beaf1",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "390eb862-9821-4137-9c20-b366240d3318",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
